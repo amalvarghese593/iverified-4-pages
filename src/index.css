@@ -1,13 +1,204 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --grey-color: #d9d9d9;
+  --online-color: #7ed957;
+  --selected-color: #00bf15;
+  --rejected-color: #ff3b3b;
+  --online-circle-radius: 30px;
+  --back-next-btn-color: #ebb840;
+  --reject-call-color: #f52828;
+  --mic-color: #a6a6a6;
+  --blue-color: #38b6ff;
+  --red-color: #ff5757;
+  --congratz-border-radius: 20px;
+}
+.view_interview-wrapper {
+  padding: 30px 30px 30px 200px;
+}
+.view_interview-container {
+  width: 100%;
+  margin-left: 0 !important;
+}
+.view_interview-container > section {
+  background-color: var(--grey-color);
+  border-radius: 35px;
+}
+.view_interview-container > section:first-child {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+}
+video.interview-video {
+  width: 100%;
+  height: 100%;
+}
+section.interview-details {
+  text-align: start;
+}
+span.view_interview-online-circle {
+  background-color: var(--online-color);
+  outline: 1px solid red;
+  outline-offset: 5px;
+  display: inline-block;
+  width: var(--online-circle-radius);
+  height: var(--online-circle-radius);
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+}
+.view_interview-container .bold-text {
+  font-weight: 500;
+  font-size: large;
+}
+.selected {
+  color: var(--selected-color);
+}
+.rejected {
+  color: var(--rejected-color);
+}
+.check-icon {
+  color: var(--selected-color);
+}
+.times-icon {
+  color: var(--rejected-color);
+}
+.back-icon,
+.next-icon {
+  font-size: 40px;
+  color: var(--back-next-btn-color);
+}
+.back-next-btn-wrapper {
+  margin: 0 !important;
+}
+.back-next-btn-wrapper span {
+  cursor: pointer;
+}
+@media (max-width: 769px) {
+  .view_interview-wrapper {
+    padding: 10px;
+  }
+  .view_interview-container > section {
+    border-radius: 15px;
+  }
+  span.view_interview-online-circle {
+    width: 15px;
+    height: 15px;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* live interview page */
+.video-call-btn-container {
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  font-size: 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.video-call-btn-container span {
+  cursor: pointer;
+}
+span.select {
+  color: var(--online-color);
+}
+span.reject {
+  color: var(--reject-call-color);
+}
+span.mic {
+  color: var(--mic-color);
+}
+.help-message-container {
+  font-size: 20px;
+}
+@media (max-width: 540px) {
+  .help-message-container {
+    font-size: 16px;
+  }
+  .video-call-btn-container {
+    font-size: 20px;
+  }
+}
+
+/* congrats page */
+.congratz-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  padding-top: 30px;
+}
+.congratz-wrapper > div:first-child {
+  background-color: var(--blue-color);
+  font-size: 30px;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  width: 80%;
+  border-radius: var(--congratz-border-radius);
+}
+.congratz-wrapper span {
+  background-color: var(--red-color);
+  padding: 30px 120px;
+  margin-bottom: 30px;
+  border-radius: var(--congratz-border-radius);
+}
+@media (max-width: 540px) {
+  .congratz-wrapper {
+    padding: 20px 10px;
+  }
+  .congratz-wrapper > div:first-child {
+    font-size: 16px;
+    padding: 20px 10px;
+    width: 100%;
+  }
+  .congratz-wrapper span {
+    padding: 20px 40px;
+  }
+}
+
+/* begin-interview page */
+.begin-interview-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px;
+  font-size: 30px;
+}
+.begin-interview-wrapper p,
+span {
+  border-radius: 25px;
+}
+.begin-interview-wrapper p {
+  color: #000;
+  background-color: var(--red-color);
+  padding: 40px 30px;
+  width: 80%;
+}
+.begin-interview-wrapper span {
+  background-color: var(--blue-color);
+  padding: 25px 80px;
+  color: #fff;
+}
+@media (max-width: 540px) {
+  .begin-interview-wrapper {
+    padding: 50px 10px;
+    font-size: 16px;
+  }
+  .begin-interview-wrapper p {
+    width: 100%;
+    padding: 20px 10px;
+  }
 }
